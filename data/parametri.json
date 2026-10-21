@@ -1,0 +1,69 @@
+
+{
+  "metadati": {
+    "descrizione": "Parametri della simulazione logistica - PW23",
+    "azienda": "Velotto S.r.l.",
+    "valuta": "EUR",
+    "unita_quantita": "kg",
+    "periodo": "giornata_di_consegna",
+    "natura_dati": "simulati",
+    "nota": "Quantita, veicoli e costi sono ipotesi del caso di studio e non dati operativi reali dell'azienda."
+  },
+  "deposito": "D",
+  "domanda_kg": {
+    "C1": 100,
+    "C2": 130,
+    "C3": 90,
+    "C4": 300,
+    "C5": 280
+  },
+  "domanda_totale_kg": 900,
+  "scenari": {
+    "veicolo_unico": {
+      "numero_veicoli": 1,
+      "capacita_per_veicolo_kg": 1300,
+      "costo_fisso_per_veicolo_eur": 95.0,
+      "costo_per_km_eur": 0.45,
+      "costo_orario_autista_eur": 20.0
+    },
+    "due_veicoli": {
+      "numero_veicoli": 2,
+      "capacita_per_veicolo_kg": 500,
+      "costo_fisso_per_veicolo_eur": 55.0,
+      "costo_per_km_eur": 0.30,
+      "costo_orario_autista_eur": 20.0
+    }
+  },
+  "tempi": {
+    "velocita_media_kmh": 30,
+    "scarico_minuti": {
+      "C1": 20,
+      "C2": 20,
+      "C3": 15,
+      "C4": 35,
+      "C5": 35
+    }
+  },
+  "ottimizzazione": {
+    "metodo": "enumerazione_completa",
+    "obiettivo": "minimizzare_distanza_totale",
+    "partenza_e_ritorno_al_deposito": true,
+    "ogni_cliente_servito_una_volta": true,
+    "rispettare_capacita": true,
+    "entrambi_i_veicoli_piccoli_obbligatori": true
+  },
+  "analisi_sensibilita": {
+    "parametro": "costo_fisso_per_veicolo_eur",
+    "scenario": "veicolo_unico",
+    "valori_eur": [
+      60,
+      80,
+      95,
+      110,
+      130,
+      150,
+      170,
+      190
+    ]
+  }
+}

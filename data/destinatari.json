@@ -1,0 +1,44 @@
+{
+  "destinatari": [
+    {
+      "id": "C1",
+      "nome": "Il Brigante Ilario Tutucci",
+      "tipologia": "Ristorante e pizzeria",
+      "indirizzo": "Via Monteoliveto 48",
+      "comune": "Volla",
+      "provincia": "NA"
+    },
+    {
+      "id": "C2",
+      "nome": "Ristorante Del Pino",
+      "tipologia": "Ristorante e pizzeria",
+      "indirizzo": "Via Don Minzoni 225",
+      "comune": "Cercola",
+      "provincia": "NA"
+    },
+    {
+      "id": "C3",
+      "nome": "Pizzeria I Vesuviani",
+      "tipologia": "Pizzeria",
+      "indirizzo": "Strada Statale Sannitica 87",
+      "comune": "Casoria",
+      "provincia": "NA"
+    },
+    {
+      "id": "C4",
+      "nome": "Conad City",
+      "tipologia": "Supermercato",
+      "indirizzo": "Via Luca Giordano 67/70",
+      "comune": "San Giorgio a Cremano",
+      "provincia": "NA"
+    },
+    {
+      "id": "C5",
+      "nome": "Euroesse Supermarket",
+      "tipologia": "Supermercato",
+      "indirizzo": "Via Benvenuto Cellini 19",
+      "comune": "Portici",
+      "provincia": "NA"
+    }
+  ]
+}
