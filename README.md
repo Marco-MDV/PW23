@@ -13,8 +13,8 @@ Il progetto prende come riferimento **Velotto S.r.l.**, un'impresa operante nel 
 
 L'obiettivo consiste nell'individuare i percorsi ottimali mediante algoritmi di enumerazione completa e valutare la convenienza economica di due scenari:
 
-- **TSP — Traveling Salesman Problem:** tutte le consegne sono effettuate da un unico veicolo.
-- **VRP — Vehicle Routing Problem:** le consegne sono suddivise tra due furgoni, rispettando i rispettivi vincoli di capacità.
+- **TSP - Traveling Salesman Problem:** tutte le consegne sono effettuate da un unico veicolo.
+- **VRP - Vehicle Routing Problem:** le consegne sono suddivise tra due furgoni, rispettando i rispettivi vincoli di capacità.
 
 Il sistema comprende un backend Python per l'elaborazione e un frontend web interattivo per la consultazione dei risultati.
 
