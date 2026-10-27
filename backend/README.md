@@ -32,6 +32,7 @@ backend
     ├── calcolo_percorso_ottimale_singolo_furgone.py
     ├── calcolo_percorso_ottimale_doppio_furgone.py
     ├── calcola_costi.py
+    ├── geometria_percorso.py
     └── analisi_sensibilita.py
 ```
 
@@ -49,6 +50,7 @@ backend
 | `calcolo_percorso_ottimale_doppio_furgone.py` | Risoluzione VRP |
 | `calcola_costi.py` | Valutazione economica dei due scenari |
 | `analisi_sensibilita.py` | Confronto economico al variare di un parametro |
+| `geometria_percorso.py` | Costruzione delle geometrie GeoJSON dei percorsi ottimi |
 
 ## 3. Dataset utilizzati
 
@@ -216,7 +218,7 @@ Gli algoritmi di ottimizzazione utilizzano la libreria standard Python, in parti
 Aprire un terminale nella cartella `backend/` ed eseguire:
 
 ```powershell
-py .\main.py
+py -m flask --app api run --debug --host 127.0.0.1 --port 5050
 ```
 
 Il programma richiama le funzioni di elaborazione dal modulo principale.

@@ -1,9 +1,9 @@
-# PW23 — Ottimizzazione dei percorsi di distribuzione agroalimentare
+# PW23 - Ottimizzazione dei percorsi di distribuzione agroalimentare
 
-**Project Work universitario — Università Telematica Pegaso**  
+**Project Work universitario**  
 **Corso di laurea:** Informatica per le Aziende Digitali (L-31)  
 **Autore:** Marco De Vincentiis  
-**Caso di studio:** Velotto S.r.l. — Napoli
+**Caso di studio:** Velotto S.r.l. - Napoli
 
 ## 1. Descrizione del progetto
 
@@ -17,8 +17,6 @@ L'obiettivo consiste nell'individuare i percorsi ottimali mediante algoritmi di 
 - **VRP — Vehicle Routing Problem:** le consegne sono suddivise tra due furgoni, rispettando i rispettivi vincoli di capacità.
 
 Il sistema comprende un backend Python per l'elaborazione e un frontend web interattivo per la consultazione dei risultati.
-
-Il progetto è una **simulazione didattica indipendente** e non rappresenta un sistema operativo ufficiale di Velotto S.r.l.
 
 ## 2. Obiettivi
 
@@ -43,8 +41,6 @@ Ai fini del modello, viene utilizzato come deposito di partenza e ritorno l'indi
 
 **Via Luigi Volpicella 214, 80147 Napoli (NA).**
 
-L'indirizzo corrisponde alla sede aziendale individuata nella documentazione. Il suo utilizzo come deposito logistico è un'ipotesi del caso di studio: non implica la verifica dell'effettiva presenza di un magazzino operativo destinato alle consegne simulate.
-
 ### 3.2 Destinatari
 
 La rete distributiva comprende cinque punti di consegna:
@@ -58,7 +54,7 @@ La rete distributiva comprende cinque punti di consegna:
 | C5 | Euroesse Supermarket | Portici | 280 kg |
 | **Totale** | | | **900 kg** |
 
-Le località e le attività commerciali sono state selezionate come riferimenti territoriali reali. Gli ordini, le quantità e gli eventuali rapporti di fornitura sono esclusivamente ipotetici.
+Le località e le attività commerciali sono state selezionate come riferimenti territoriali reali.
 
 ### 3.3 Distanze stradali
 
@@ -73,7 +69,7 @@ Per ciascuna coppia di nodi sono memorizzate la distanza, espressa in chilometri
 
 La matrice è direzionale: la distanza da A a B può essere diversa da quella da B ad A.
 
-I risultati utilizzano il dataset salvato in `data/distanze.json`. La data esatta dell'acquisizione originale non è disponibile.
+I risultati utilizzano il dataset salvato in `data/distanze.json`.
 
 Ulteriori dettagli sono presenti nella [documentazione dei dati](./data/README.md).
 
@@ -298,7 +294,7 @@ Per eseguire il progetto sono necessari:
 - Git, per clonare il repository.
 - Connessione Internet per caricare la cartografia OpenStreetMap.
 
-I dataset necessari all'ottimizzazione sono inclusi nel repository. Non è necessario richiamare i servizi Nominatim e OSRM a ogni avvio.
+I dataset necessari all'ottimizzazione sono inclusi nel repository. **Non è necessario richiamare i servizi Nominatim e OSRM a ogni avvio.**
 
 ### 9.2 Clonazione
 
@@ -341,7 +337,7 @@ Aprire nel browser:
 
 La dashboard utilizza il proxy configurato in `frontend/next.config.ts` per inoltrare le richieste `/api/*` al server Flask sulla porta `5050`.
 
-**Importante:** backend e frontend devono essere avviati contemporaneamente.
+**Importante:** il backend deve essere avviato precedentemente al frontend cosi da non riscontrare eventuali disservizi di non raggiungibilità.
 
 Se la porta predefinita di Next.js è occupata, controllare l'indirizzo effettivamente indicato nel terminale.
 
@@ -377,21 +373,7 @@ La modifica dei destinatari o della rete stradale può invece richiedere una nuo
 
 Il ricalcolo delle distanze utilizza servizi esterni e modifica il dataset; pertanto è consigliabile conservarne una copia prima di procedere.
 
-## 11. Ipotesi e limiti
-
-Il modello adotta alcune semplificazioni:
-
-- Le consegne e i rapporti commerciali sono simulati.
-- Capacità, tariffe e tempi di servizio non derivano da dati operativi ufficiali dell'azienda.
-- Le distanze rappresentano percorsi stradali calcolati tramite un servizio di routing, non misurazioni sul campo.
-- Il traffico in tempo reale non è considerato.
-- I tempi di guida sono stimati mediante una velocità media convenzionale.
-- Non sono modellati vincoli aggiuntivi quali finestre temporali di consegna, condizioni del traffico o disponibilità effettiva dei conducenti.
-- L'ottimizzazione minimizza la distanza complessiva. Il confronto economico viene effettuato successivamente, sui percorsi individuati.
-
-L'enumerazione completa è adeguata al numero limitato di destinazioni considerato, ma presenta una complessità crescente all'aumentare dei clienti.
-
-## 12. Documentazione del progetto
+## 11. Documentazione del progetto
 
 Per approfondimenti tecnici e metodologici:
 
@@ -405,7 +387,7 @@ Per approfondimenti tecnici e metodologici:
 | [Traccia del Project Work](./allegatoPW23.pdf) | Documento universitario di riferimento |
 | [Template della relazione](./Template%20Project%20WorkPW23.docx) | Modello predisposto per la relazione finale |
 
-## 13. Autore e licenza
+## 12. Autore e licenza
 
 **Marco De Vincentiis**
 
