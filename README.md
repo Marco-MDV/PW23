@@ -75,7 +75,7 @@ Ulteriori dettagli sono presenti nella [documentazione dei dati](./data/README.m
 
 ## 4. Scenari logistici
 
-| Parametro | TSP — Veicolo unico | VRP — Due veicoli |
+| Parametro | TSP - Veicolo unico | VRP - Due veicoli |
 |---|---:|---:|
 | Numero di veicoli | 1 | 2 |
 | Capacità per veicolo | 1.300 kg | 500 kg |
@@ -93,7 +93,7 @@ Tutti i parametri operativi ed economici sono simulati e configurabili nel file 
 
 ## 5. Metodologia di ottimizzazione
 
-### 5.1 Traveling Salesman Problem — TSP
+### 5.1 Traveling Salesman Problem - TSP
 
 L'algoritmo considera tutte le permutazioni dei cinque destinatari e individua il percorso con distanza totale minima.
 
@@ -106,7 +106,7 @@ Ogni percorso:
 
 Con cinque clienti vengono esaminate **5! = 120 permutazioni**.
 
-### 5.2 Vehicle Routing Problem — VRP
+### 5.2 Vehicle Routing Problem - VRP
 
 Il problema viene risolto mediante enumerazione delle possibili ripartizioni dei destinatari tra due furgoni.
 
@@ -127,7 +127,7 @@ I seguenti risultati si riferiscono alla matrice stradale e ai parametri attualm
 
 ### 6.1 Percorsi ottimi
 
-**TSP — Veicolo unico**
+**TSP - Veicolo unico**
 
 `D → C3 → C1 → C2 → C4 → C5 → D`
 
@@ -135,7 +135,7 @@ I seguenti risultati si riferiscono alla matrice stradale e ai parametri attualm
 - Carico trasportato: **900 kg**
 - Capacità disponibile: **1.300 kg**
 
-**VRP — Due veicoli**
+**VRP - Due veicoli**
 
 Furgone 1:
 
