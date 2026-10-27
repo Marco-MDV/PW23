@@ -1,4 +1,4 @@
-# Data — Documentazione e gestione dei dati
+# Documentazione e gestione dei dati
 
 ## 1. Descrizione
 

@@ -1,0 +1,32 @@
+
+import { Fragment } from "react";
+
+export default function PercorsoTappe({ percorso }) {
+  return (
+    <>
+      {percorso.map((tappa, i) => (
+        <Fragment key={i}>
+          <span className="border border-black/30 rounded-xl px-1 text-[9px] flex items-center justify-center shrink-0">
+            {tappa}
+          </span>
+
+          {i < percorso.length - 1 && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="10"
+              height="10"
+              viewBox="0 0 512 512"
+              fill="none"
+              className="shrink-0"
+            >
+              <path
+                d="M85 277.375h259.704L225.002 397.077 256 427l171-171L256 85l-29.922 29.924 118.626 119.701H85v42.75z"
+                fill="#000000"
+              />
+            </svg>
+          )}
+        </Fragment>
+      ))}
+    </>
+  );
+}
