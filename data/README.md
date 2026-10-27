@@ -132,7 +132,7 @@ I parametri vengono letti dal backend Python ed elaborati per il calcolo dei per
 
 ## 3. Convenzioni dei dati
 
-Per garantire uniformità tra dataset e componenti applicativi saranno adottate le seguenti convenzioni:
+Per garantire uniformità tra dataset e componenti applicativi sono adottate le seguenti convenzioni:
 
 | Elemento                     | Convenzione                                 |
 | ---------------------------- | ------------------------------------------- |
@@ -145,7 +145,7 @@ Per garantire uniformità tra dataset e componenti applicativi saranno adottate 
 | Valuta                       | Euro (EUR)                                  |
 | Separatore decimale nei JSON | Punto (`.`)                                 |
 
-Gli identificativi resteranno invariati in tutti i dataset per consentire il corretto collegamento delle informazioni.
+Gli identificativi sono mantenuti invariati in tutti i dataset per consentire il corretto collegamento delle informazioni.
 
 ## 4. Provenienza e attendibilità
 
