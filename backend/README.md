@@ -281,7 +281,7 @@ L'enumerazione completa garantisce la ricerca dell'ottimo rispetto all'istanza e
 
 Il backend produce risultati strutturati destinati alla visualizzazione mediante un'interfaccia web.
 
-La rappresentazione dovrà comprendere:
+La dashboard comprende:
 
 - Grafo della rete distributiva.
 - Percorsi ottimali TSP e VRP.
