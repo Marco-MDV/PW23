@@ -178,7 +178,7 @@ I valori economici dipendono dai parametri simulati e non rappresentano costi ef
 
 ### 6.3 Analisi di sensibilità
 
-Il sistema valuta come cambia la convenienza economica modificando il costo fisso del veicolo unico, mantenendo invariati gli altri parametri.
+Il sistema valuta come cambia la convenienza economica modificando il **costo fisso unitario del veicolo nello scenario TSP**, espresso in euro per veicolo (€/veicolo), mantenendo invariati gli altri parametri economici.
 
 I valori considerati sono:
 

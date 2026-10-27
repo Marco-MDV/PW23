@@ -181,7 +181,11 @@ Con i parametri iniziali, lo scenario TSP risulta economicamente più convenient
 
 ## 7. Analisi di sensibilità
 
-Il progetto valuta come varia la convenienza economica modificando il **costo fisso del veicolo unico**, mantenendo invariati gli altri parametri.
+Il progetto valuta come varia la convenienza economica modificando il **costo fisso unitario del veicolo nello scenario TSP**, espresso in euro per veicolo (€/veicolo), mantenendo invariati tutti gli altri parametri economici.
+
+Il parametro rappresenta il costo fisso sostenuto per l'utilizzo di un singolo veicolo nella giornata di distribuzione.
+
+L'analisi consente di determinare come la variazione di questo prezzo unitario influisca sulla convenienza economica rispetto alla configurazione VRP con due furgoni.
 
 I valori considerati sono:
 
@@ -298,11 +302,3 @@ La comunicazione tra frontend e backend avviene tramite API REST. Il frontend ef
 - [Documentazione frontend](../frontend/README.md)
 
 ---
-
-**Project Work:** PW23 — Informatica per le Aziende Digitali (L-31)
-
-**Caso di studio:** Velotto S.r.l.
-
-**Linguaggio backend:** Python
-
-**Metodo di ottimizzazione:** Enumerazione completa

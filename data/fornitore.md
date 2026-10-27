@@ -36,6 +36,32 @@ Velotto S.r.l. è classificata con codice **ATECO 46.31.10 — Commercio all'ing
 
 Il settore comprende la commercializzazione all'ingrosso di prodotti ortofrutticoli destinati al mercato alimentare.
 
+### 3.1 Prodotti commercializzati e tipologie di clientela
+
+Velotto S.r.l. opera nel settore del commercio all'ingrosso di **frutta e ortaggi freschi**, appartenente al comparto agroalimentare.
+
+Le principali categorie merceologiche di riferimento comprendono:
+
+- **Frutta fresca:** prodotti ortofrutticoli destinati al consumo alimentare e alla successiva commercializzazione.
+- **Ortaggi freschi:** prodotti vegetali destinati alla ristorazione e alla distribuzione alimentare.
+
+Queste categorie descrivono il settore di attività dell'impresa, senza costituire un inventario verificato dei singoli prodotti effettivamente commercializzati.
+
+La distribuzione di prodotti freschi richiede particolare attenzione all'organizzazione delle consegne, ai tempi di trasporto e alle caratteristiche di conservazione delle merci.
+
+**Clientela considerata nel caso di studio**
+
+Per la simulazione logistica sono state selezionate due categorie di destinatari:
+
+- **Ristoranti e pizzerie:** attività che possono acquistare prodotti ortofrutticoli destinati alla preparazione e alla somministrazione di alimenti.
+- **Supermercati:** attività della distribuzione alimentare che possono acquistare prodotti ortofrutticoli destinati alla vendita al dettaglio.
+
+Il modello considera cinque destinatari: tre attività di ristorazione e due supermercati, situati nei comuni limitrofi a Napoli.
+
+La domanda complessiva simulata è pari a **900 kg**, ripartita tra i cinque punti di consegna.
+
+La selezione consente di rappresentare uno scenario distributivo coerente con il settore agroalimentare e di applicare i modelli di ottimizzazione TSP e VRP.
+
 ## 4. Dati economici e finanziari
 
 Secondo le informazioni pubblicate da banche dati societarie commerciali, Velotto S.r.l. presenta i seguenti risultati economici:
