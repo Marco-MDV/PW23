@@ -17,7 +17,7 @@ Questa distinzione consente di sviluppare un modello logistico realistico senza 
 
 ## 2. Organizzazione della cartella
 
-La struttura prevista è la seguente:
+La struttura della cartella è la seguente:
 
 ```
 data
@@ -77,40 +77,58 @@ Il formato JSON consente al backend Python di leggere le informazioni senza dove
 
 ### 2.4 distanze.json
 
-Il file conterrà le distanze chilometriche stradali tra il deposito e i cinque destinatari, comprese quelle tra i destinatari stessi.
+La matrice è **direzionale**: la distanza da un nodo A a un nodo B può differire dalla distanza del percorso inverso, a causa della configurazione della rete stradale.
 
-Le distanze saranno calcolate mediante un servizio di routing stradale, come OSRM basato su OpenStreetMap, documentando la fonte, la data di rilevazione e il criterio di calcolo.
+Il file contiene le seguenti proprietà principali:
 
-La matrice comprenderà sei nodi:
+| Proprietà | Descrizione |
+|---|---|
+| `metadati` | Fonte, metodo di acquisizione, unità di misura e caratteristiche della matrice |
+| `nodi` | Identificativi e indirizzi delle sei località |
+| `matrice_km` | Matrice direzionale delle distanze stradali |
+| `geometrie_stradali` | Geometrie GeoJSON dei percorsi tra le coppie di nodi |
+| `coordinate_nodi` | Coordinate geografiche dei nodi |
 
-- `D` — Deposito di riferimento, Napoli.
-- `C1` — Volla.
-- `C2` — Cercola.
-- `C3` — Casoria.
-- `C4` — San Giorgio a Cremano.
-- `C5` — Portici.
+Le geometrie stradali sono utilizzate dal frontend per rappresentare i percorsi ottimali sulla mappa interattiva Leaflet.
 
-La matrice sarà di dimensione **6 × 6**.
+I valori rappresentano distanze calcolate da un servizio di routing e non misurazioni effettuate direttamente su strada.
 
-Per ogni rilevazione verranno documentati la distanza, la fonte e il metodo utilizzato. Verranno inoltre considerate eventuali differenze tra percorso di andata e di ritorno dovute alla viabilità.
+Il dataset è già popolato e viene utilizzato dal backend per le elaborazioni TSP e VRP. L'acquisizione delle distanze non viene ripetuta automaticamente a ogni avvio dell'applicazione.
 
 ### 2.5 parametri.json
 
-Il file conterrà i parametri utilizzati per simulare e confrontare le differenti configurazioni logistiche.
+Il file [`parametri.json`](./parametri.json) contiene i parametri utilizzati per simulare e confrontare le configurazioni logistiche TSP e VRP.
 
-I dati previsti comprendono:
+I dati comprendono:
 
-- Quantità di prodotti da consegnare a ciascun destinatario.
-- Capacità di carico dei veicoli.
-- Numero di veicoli disponibili.
-- Costi di utilizzo o noleggio dei veicoli.
-- Costo chilometrico.
+- Identificativo del deposito.
+- Quantità da consegnare a ciascun destinatario.
+- Domanda complessiva.
+- Numero e capacità dei veicoli.
+- Costi fissi e chilometrici.
 - Costo orario degli autisti.
-- Eventuali ulteriori parametri economici.
+- Velocità media convenzionale.
+- Tempi di scarico per destinatario.
+- Vincoli dell'ottimizzazione.
+- Valori dell'analisi di sensibilità.
 
-Le quantità dovranno essere definite in modo che, nello scenario con due veicoli di capacità inferiore, **sia necessario utilizzare entrambi i mezzi**.
+La domanda complessiva è pari a **900 kg**.
 
-I parametri saranno ipotetici e motivati in funzione delle caratteristiche del caso di studio.
+Sono definiti due scenari:
+
+| Parametro | TSP | VRP |
+|---|---|---|
+| Veicoli | 1 | 2 |
+| Capacità per veicolo | 1.300 kg | 500 kg |
+| Costo fisso per veicolo | 95 € | 55 € |
+| Costo chilometrico | 0,45 €/km | 0,30 €/km |
+| Costo orario autista | 20 €/h | 20 €/h |
+
+Nel secondo scenario, la domanda complessiva supera la capacità di un singolo furgone da 500 kg; è pertanto necessario utilizzare entrambi i veicoli.
+
+Le quantità, le capacità, i tempi operativi e i costi sono **ipotesi didattiche** definite per il caso di studio e non rappresentano dati operativi ufficiali di Velotto S.r.l.
+
+I parametri vengono letti dal backend Python ed elaborati per il calcolo dei percorsi, dei costi e dell'analisi di sensibilità.
 
 ## 3. Convenzioni dei dati
 
@@ -131,37 +149,58 @@ Gli identificativi resteranno invariati in tutti i dataset per consentire il cor
 
 ## 4. Provenienza e attendibilità
 
-I dati aziendali sono ricavati da fonti pubbliche, tra cui il Registro delle Imprese e banche dati societarie.
+I dati utilizzati nel progetto provengono da fonti differenti e vengono distinti in base alla loro natura.
 
-Le localizzazioni dei destinatari sono basate su indirizzi di attività commerciali reali.
+### Informazioni aziendali
 
-Le distanze saranno misurate attraverso un servizio cartografico e documentate.
+Le informazioni relative a Velotto S.r.l. sono state raccolte attraverso fonti societarie pubblicamente consultabili e documentate nel file [`fornitore.md`](./fornitore.md).
 
-I valori relativi a ordini, capacità dei veicoli e costi saranno definiti attraverso ipotesi coerenti con il contesto logistico.
+L'indirizzo della sede aziendale è utilizzato come deposito di riferimento del modello.
+
+### Destinatari e localizzazioni
+
+I cinque destinatari sono attività commerciali selezionate nell'area di Napoli e nei comuni limitrofi.
+
+Le informazioni descrittive e gli indirizzi sono riportati nei file `destinatari.md` e `destinatari.json`.
+
+### Distanze stradali
+
+Le distanze sono state ottenute mediante geocodifica Nominatim e routing OSRM basati su dati OpenStreetMap.
+
+Lo script Python ha acquisito la lunghezza dei percorsi e le rispettive geometrie GeoJSON.
+
+Il dataset contiene le distanze per tutte le coppie di nodi distinte e tiene conto della direzionalità della rete stradale.
+
+Le distanze costituiscono una rappresentazione della rete stradale calcolata dal servizio di routing, senza garanzia di corrispondenza con il traffico o le condizioni viarie attuali.
+
+### Parametri simulati
+
+Ordini, quantità, capacità dei veicoli, tempi di scarico e costi sono definiti mediante ipotesi didattiche.
+
+La separazione tra dati territoriali e parametri simulati consente di rendere esplicite le assunzioni utilizzate nell'analisi e di riprodurre i risultati.
 
 ## 5. Utilizzo dei dati nel progetto
 
-I dataset presenti nella cartella saranno utilizzati dai componenti applicativi per:
+I dataset presenti nella cartella vengono utilizzati dai componenti applicativi per:
 
 1. Identificare il deposito e i cinque punti di consegna.
-2. Costruire il grafo della rete distributiva.
-3. Calcolare e confrontare i possibili percorsi.
+2. Costruire la matrice direzionale delle distanze stradali.
+3. Calcolare i percorsi ottimi TSP e VRP mediante enumerazione completa.
 4. Verificare il rispetto dei vincoli di capacità.
 5. Stimare i costi di distribuzione.
-6. Visualizzare i risultati attraverso l'interfaccia applicativa.
+6. Eseguire l'analisi di sensibilità economica.
+7. Rappresentare i risultati attraverso la dashboard web.
 
-L'elaborazione dei dati sarà gestita dal backend Python, mentre la rappresentazione grafica dei risultati sarà affidata al frontend.
+L'elaborazione dei dati è gestita dal backend Python, mentre il frontend Next.js/React utilizza le informazioni restituite dall'API Flask per visualizzare:
+
+- Il contesto aziendale e i dati della simulazione.
+- I percorsi ottimali sulla mappa interattiva.
+- I grafi orientati delle soluzioni.
+- Il confronto logistico ed economico.
+- Il grafico dell'analisi di sensibilità.
 
 Per maggiori informazioni sull'implementazione si rimanda alle rispettive documentazioni:
 
 - [Backend](../backend/README.md)
 - [Frontend](../frontend/README.md)
 - [Documentazione generale](../README.md)
-
----
-
-**Progetto:** PW23 — Informatica per le Aziende Digitali (L-31)
-
-**Caso di studio:** Velotto S.r.l.
-
-**Area geografica:** Napoli e comuni limitrofi

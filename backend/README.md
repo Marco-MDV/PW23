@@ -124,13 +124,13 @@ Le suddivisioni con i furgoni scambiati possono essere valutate più volte, senz
 
 ## 5. Risultati dell'ottimizzazione
 
-Con la matrice delle distanze utilizzata nel caso di studio:
+Con la matrice delle distanze attualmente utilizzata nel caso di studio:
 
 ### Scenario TSP
 
 **Percorso:** `D → C3 → C1 → C2 → C4 → C5 → D`
 
-- Distanza complessiva: **47,12 km**
+- Distanza complessiva: **46,75 km**
 - Carico: **900 kg**
 - Capacità: **1.300 kg**
 
@@ -138,17 +138,17 @@ Con la matrice delle distanze utilizzata nel caso di studio:
 
 **Furgone 1:** `D → C2 → C4 → D`
 
-- Distanza: **14,91 km**
+- Distanza: **15,83 km**
 - Carico: **430 kg**
 
 **Furgone 2:** `D → C5 → C3 → C1 → D`
 
-- Distanza: **43,35 km**
+- Distanza: **44,27 km**
 - Carico: **470 kg**
 
-**Distanza complessiva VRP: 58,26 km.**
+**Distanza complessiva VRP: 60,10 km.**
 
-Lo scenario TSP percorre quindi **11,14 km in meno**.
+Lo scenario TSP percorre quindi **13,35 km in meno** rispetto al VRP.
 
 ## 6. Confronto economico
 
@@ -173,10 +173,11 @@ Con i parametri iniziali, i valori economici attesi sono:
 | Voce | TSP | VRP |
 |---|---:|---:|
 | Costi fissi | 95,00 € | 110,00 € |
-| Costi chilometrici | 21,20 € | 17,48 € |
-| Costi autisti | 73,08 € | 80,51 € |
-| **Costo complessivo** | **189,28 €** | **207,98 €** |
+| Costi chilometrici | 21,04 € | 18,03 € |
+| Costi autisti | 72,83 € | 81,73 € |
+| **Costo complessivo** | **188,87 €** | **209,76 €** |
 
+Con i parametri iniziali, lo scenario TSP risulta economicamente più conveniente, con un risparmio stimato di **20,89 €** rispetto allo scenario VRP.
 
 ## 7. Analisi di sensibilità
 
@@ -190,11 +191,11 @@ I valori considerati sono:
 
 Per ogni valore vengono confrontati i costi complessivi TSP e VRP.
 
-Nel modello iniziale, la soglia di equivalenza economica è pari a circa **113,70 €** di costo fisso del furgone unico.
+Nel modello attuale, la soglia di equivalenza economica è pari a circa **115,89 €** di costo fisso del veicolo unico.
 
 Al di sotto di tale soglia risulta più conveniente il TSP; al di sopra, il VRP.
 
-L'analisi consente di distinguere la soluzione che minimizza la distanza da quella economicamente preferibile.
+L'analisi evidenzia come la soluzione che minimizza la distanza non coincida necessariamente con quella economicamente più conveniente al variare dei costi.
 
 ## 8. Avvio del backend
 
@@ -209,7 +210,6 @@ Gli algoritmi di ottimizzazione utilizzano la libreria standard Python, in parti
 ### Esecuzione
 
 Aprire un terminale nella cartella `backend/` ed eseguire:
-
 
 ```powershell
 py .\main.py
