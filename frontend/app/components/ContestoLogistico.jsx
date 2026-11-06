@@ -155,7 +155,7 @@ export default function ContestoLogistico({ data }) {
 
           <div className="mt-4 border-t border-black/10 pt-3">
             <p className="text-xs text-black/50">
-              Deposito assunto nel modello — Nodo D
+              Deposito assunto nel modello - Nodo D
             </p>
 
             <p className="mt-1 text-sm font-semibold">
@@ -284,13 +284,13 @@ export default function ContestoLogistico({ data }) {
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           <CardScenario
-            titolo="TSP — Veicolo unico"
+            titolo="TSP - Veicolo unico"
             scenario={scenari?.veicolo_unico}
             colore="#059669"
           />
 
           <CardScenario
-            titolo="VRP — Due veicoli"
+            titolo="VRP - Due veicoli"
             scenario={scenari?.due_veicoli}
             colore="#2563eb"
           />
